@@ -1,0 +1,240 @@
+<div class="modal fade" id="detalleDispositivo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header" style="background-color: #c23f3e;">
+				<h5 class="modal-title" id="lbl_titulo_detalleDispo" style="color: white;"></h5>
+					 <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+                    	<span aria-hidden="true">&times;</span>
+                     </button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid bg-gray" id="accordion-style-1">
+					<div class="container">
+						<section>
+							<div class="row">
+								<div class="col-12 mx-auto">
+									<div class="accordion" id="accordionExample">
+										<div class="card">
+											<div class="card-header" id="headingOne">
+												<h5 class="mb-0">
+													<button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+														 data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+														 <i class="material-icons">&#xe1b3;</i>&nbsp;&nbsp;Datos de Ubicacion:
+													</button>
+												</h5>
+											</div>
+											 <div id="collapseOne" class="collapse fade" aria-labelledby="headingOne" data-parent="#accordionExample">
+<!-- 											 	<div class="card-body"> -->
+											 			<div class="row">
+											 				<div class="col-lg-4">
+											 					<label for="email">Sede:</label>
+											 					<input type="text" class="form-control" id="txt_sede_det"  disabled
+											 						style="font-size: 13px;"
+	                												ng-model="dCtrl.detalleDispo.dispositivo.ubicacionBean.sedeBean.nomSede">
+											 				</div>
+											 				<div class="col-lg-4">
+											 					<label for="email">Division:</label>
+											 					<input type="text" class="form-control" id="txt_division_det" disabled
+											 						style="font-size: 13px;"
+											 					ng-model="dCtrl.detalleDispo.dispositivo.ubicacionBean.divisionBean.nomDivision">
+											 				</div>
+											 				<div class="col-lg-4">
+											 					<label for="email">Oficina:</label>
+											 					<input type="text" class="form-control" id="txt_oficina_det" disabled
+											 					style="font-size: 13px;"
+											 					ng-model="dCtrl.detalleDispo.dispositivo.ubicacionBean.oficinaBean.nomOficina">
+											 				</div>
+											 			</div>
+<!-- 											 	</div> -->
+											 </div>
+										</div>
+										
+										<div class="card">
+											<div class="card-header" id="headingseven">
+												<h5 class="mb-0">
+													<button class="btn btn-link collapsed btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseseven" 
+														aria-expanded="false" aria-controls="collapseseven">
+														<i class="material-icons">&#xe912;</i>&nbsp;&nbsp;Datos:
+													</button>
+												</h5>
+											</div>
+											<div id="collapseseven" class="collapse fade" aria-labelledby="headingseven" data-parent="#accordionExample">
+												<div class="row">
+														<div class="col-lg-4">
+															<label for="email">Tipo:</label>
+															<input type="text" class="form-control" id="txt_tipod_det"  disabled
+															ng-model="dCtrl.detalleDispo.dispositivo.tipoDispositivoBean.nomDispositivo">
+														</div>
+														<div class="col-lg-4">
+															<label for="email">Estado:</label>
+															<input type="text" class="form-control" id="txt_estado_det" disabled
+															ng-model="dCtrl.detalleDispo.dispositivo.estadoBean.nomEstado">
+														</div>
+														<div class="col-lg-4">
+															<label for="email">Marca:</label>
+															<input type="text" class="form-control" id="txt_marca_det" disabled
+															ng-model="dCtrl.detalleDispo.dispositivo.marca">&nbsp;
+														</div>
+														<div class="col-lg-4">
+															<label for="txt_modelod_det">Modelo:</label>
+															<input type="text" class="form-control" id="txt_modelod_det" disabled
+															ng-model="dCtrl.detalleDispo.dispositivo.modelo">
+														</div>
+														<div class="col-lg-4">
+															<label for="email">Serie:</label>
+															<input type="text" class="form-control" id="txt_seried_det" disabled
+															ng-model="dCtrl.detalleDispo.dispositivo.serie">
+														</div>
+														<div class="col-lg-4">
+															<label for="email">Cod.Barras:</label>
+															<input type="text" class="form-control" id="txt_barras_det" disabled
+															ng-model="dCtrl.detalleDispo.dispositivo.codBarras">&nbsp;
+														</div>
+														<div class="col-lg-6">
+															<label for="email">Ultima fecha Mod.</label>
+															<input type="text" class="form-control" id="txt_fecha_det" disabled
+															ng-model="dCtrl.detalleDispo.dispositivo.fecMod"	>
+														</div>
+														<div class="col-lg-6">
+															<label for="email">Observaciones:</label>
+															<textarea class="form-control" rows="2" id="txt_des_det" disabled
+															ng-model="dCtrl.detalleDispo.dispositivo.observacion"></textarea>
+														</div>
+												</div>
+
+											</div>
+											
+										</div>
+										<div class="card">
+											<div class="card-header" id="headingSix">
+												<h5 class="mb-0">
+													<button class="btn btn-link collapsed btn-block text-left" type="button" data-toggle="collapse"
+															data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+															<i class="material-icons">&#xe337;</i>&nbsp;&nbsp;Sistema Operativo/Datos PC/Antivirus	
+													</button>
+												</h5>
+											</div>
+											<div id="collapseSix" class="collapse fade" aria-labelledby="headingSix" data-parent="#accordionExample">
+												<div class="card-body">
+													<div class="row">
+														<table class="table table-striped" id="table_comp_det">
+															 <thead>
+															 	<tr>
+															 		<th>Sistema Operativo:</th>
+															 	</tr>
+															 </thead>
+															 <tbody>
+															 	<tr>
+															 		<td>Windows 10</td>
+															 	</tr>
+															 </tbody>
+														</table>
+													</div>
+													<div class="form-group">
+														<label for="email">Antivirus:</label>&nbsp;
+														<input type="text" class="form-control" id="txt_antivirus_det" disabled
+															ng-model="dCtrl.detalleDispo.dispositivo.cpu.antivirus.marca">
+														<label for="email">Nombre PC:</label>&nbsp;
+														<input type="text" class="form-control" id="txt_pc_det" disabled
+															ng-model="dCtrl.detalleDispo.dispositivo.cpu.nomCpu">
+														<label for="email">CPU:</label>&nbsp;
+														<input type="text" class="form-control" id="txt_cpu_det" disabled
+															ng-model="dCtrl.detalleDispo.dispositivo.cpu.procesador">
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header" id="headingFive">
+												<h5 class="mb-0">
+													<button class="btn btn-link collapsed btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFive"
+															 aria-expanded="false" aria-controls="collapseFive"> 
+														<i style='font-size:24px' class='fas'>&#xf007;</i>&nbsp;&nbsp;Usuarios	 
+													</button>
+												</h5>
+											</div>
+											<div id="collapseFive" class="collapse fade" aria-labelledby="headingFive" data-parent="#accordionExample">
+												<div class="card-body">
+													<table class="table table-striped" id="table_usua_det">
+														<thead>
+															<tr>
+																<th>Nombre</th>
+																<th>Usuario</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr ng-repeat="us in dCtrl.detalleDispo.dispositivo.dispositivoUsuarioBeans">
+																<td>{{us.usuarioUbicacionBean.usuarioBean.nombres}} 
+																	{{us.usuarioUbicacionBean.usuarioBean.ape1}}
+																	{{us.usuarioUbicacionBean.usuarioBean.ape2}}
+																</td>
+																<td>{{us.usuarioUbicacionBean.usuarioBean.usuRed}}</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										</div>
+										<div class="card">
+											<div class="card-header" id="headingFour">
+												<h5 class="mb-0">
+													 <button class="btn btn-link collapsed btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseFour" 
+													 		aria-expanded="false" aria-controls="collapseFour">
+													 	<i class="material-icons">&#xe8c0;</i>&nbsp;&nbsp;Componentes
+													 </button>
+												</h5>
+											</div>
+											<div id="collapseFour" class="collapse fade" aria-labelledby="headingFour" data-parent="#accordionExample">
+												<div class="card-body">
+													<table class="table table-striped" id="table_comp_det">
+														<thead>
+															<tr>
+																<th>Tipo</th>
+																<th>Marca/Modelo/Serie</th>
+																<th>Observaciones</th>
+															</tr>
+														</thead>
+														<tbody>
+															<tr>
+																<td>Tarjeta de red</td>
+															</tr> 
+															<tr>
+																<td>Ram</td>
+															</tr>
+														</tbody>
+													</table>
+												</div>
+											</div>
+										
+										</div>
+										
+										<div class="card">
+											<div class="card-header" id="headingNine">
+												<h5 class="mb-0">
+													 <button class="btn btn-link collapsed btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseNine" 
+													 	aria-expanded="false" aria-controls="collapseNine">
+													 	<i class="material-icons">&#xe640;</i>&nbsp;&nbsp;Red
+													 </button>
+												</h5>
+											</div>
+											<div id="collapseNine" class="collapse fade" aria-labelledby="headingNine" data-parent="#accordionExample">
+												<div class="card-body">
+													<div class="form-group">
+														<label for="email">IP RED:</label>&nbsp;
+														<input type="text" class="form-control" id="txt_ipred_det"  disabled>
+													</div> 
+												</div>
+											</div>
+										</div>
+										
+										
+									</div>
+								</div>
+							</div>
+						</section>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

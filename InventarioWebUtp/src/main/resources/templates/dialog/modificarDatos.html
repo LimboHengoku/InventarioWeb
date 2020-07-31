@@ -1,0 +1,48 @@
+	<div class="modal fade" id="Popup_guardar_pc" tabindex="-1"
+		role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Modificar Datos</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label for="email">Nombre PC:</label>&nbsp; <input type="text"
+								class="form-control" id="txt_pc_name"
+								ng-model="dCtrl.datosRelacionados.cpuBean.nomCpu">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail3">Antivirus:</label>&nbsp;<br>
+							<!-- Listado de Tipo de Dispositivo -->
+							<select class="browser-default custom-select" id="sel_antiv"
+								ng-options="a.marca for a in dCtrl.antivirus 
+									track by a.idAntivirus"
+								ng-model="dCtrl.datosRelacionados.cpuBean.antivirusBean">
+								
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail3">Procesador:</label>&nbsp;<br>
+							<!-- Listado de Tipo de Dispositivo -->
+							<select class="browser-default custom-select" id="sel_proc"
+								ng-options="p.procesador for p in dCtrl.procesadores
+									track by p.idDispositivo"
+								ng-model="dCtrl.datosRelacionados.cpuBean.procesador">
+								
+							</select>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button"
+						data-dismiss="modal">Cancelar</button>
+					<a class="btn btn-primary" href="">Guardar</a>
+				</div>
+			</div>
+		</div>
+	</div>
