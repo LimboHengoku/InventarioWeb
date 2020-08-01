@@ -6,7 +6,7 @@
 <title></title>
 <!-- estilos del menu -->
 <!-- Custom fonts for this template-->
-<link href="#" th:href="${allMincss}" rel="stylesheet" type="text/css">
+<link th:href="${allMincss}" rel="stylesheet" type="text/css">
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet">
@@ -18,18 +18,18 @@
 <!--===============================================================================================-->
 <link rel="stylesheet" type="text/css" th:href="${disenioCategCss}">
 
-<!--  ANGULARJS -->
+
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script src="../../js/app/app.js"></script>
-<script src="../../js/app/tipoYDominio/tipoDominioService.js"></script>
-<script src="../../js/app/tipoYDominio/tipoDominioController.js"></script>
+<script src="../../js/app/antivirusYSo/antivirusYSoService.js"></script>
+<script src="../../js/app/antivirusYSo/antivirusYSoController.js"></script>
+
 
 </head>
-<body ng-app="myApp" ng-controller="TipoYDominioController as tCtrl">
+<body ng-app="myApp" ng-controller="AntivirusYSoController as asCtrl">
 	<!-- Page Wrapper -->
 	<div id="wrapper">
-
 		<!-- Sidebar -->
 		<ul class="navbar-nav bg-danger sidebar sidebar-dark accordion"
 			id="accordionSidebar">
@@ -72,9 +72,9 @@
 					<div class="bg-white py-2 collapse-inner rounded">
 						<h6 class="collapse-header">Equipos:</h6>
 						<a class="collapse-item" href="/equipos/tipos">Tipos &
-							Dominios</a> <a class="collapse-item" href="/equipos/antivirusYSo">SO/Antivirus y
-							otros</a> <a class="collapse-item" href="/equipos/dispositivos">Dispositivos</a>
-						<a class="collapse-item" href="#">Componentes</a>
+							Dominios</a> <a class="collapse-item" href="/equipos/antivirusYSo">SO/Antivirus
+							y otros</a> <a class="collapse-item" href="/equipos/dispositivos">Dispositivos</a>
+						<a class="collapse-item" href="">Componentes</a>
 					</div>
 				</div></li>
 
@@ -314,8 +314,8 @@
 						class="nav-link dropdown-toggle" href="#" id="userDropdown"
 						role="button" data-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false"> <span
-							class="mr-2 d-none d-lg-inline text-gray-600 small"
-							th:text="${usuario}"></span> <!--<img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">-->
+							class="mr-2 d-none d-lg-inline text-gray-600 small">Ricardo
+								UTP</span> <!--<img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">-->
 							<i class="fas fa-sign-in-alt" style='font-size: 20px; color: red'></i>
 					</a> <!-- Dropdown - User Information -->
 						<div
@@ -337,65 +337,65 @@
 					<div class="table-title">
 						<div class="row">
 							<div class="col-sm-5">
-								<h2>Tipos & Dominios</h2>
+								<h2>SO/Antivirus/Procesadores</h2>
 							</div>
 							<div class="col-sm-7">
-								<a href="#" class="btn btn-primary" id="btn_domin"
-									title="Nuevo Registro" ng-click="tCtrl.limpiar()"><i class="fa">&#xf055;</i>&nbsp;&nbsp;</a>
-								<!-- 		             	<a href="#" class="btn btn-primary" id="btn_recur"><i class="fa">&#xf055;</i>&nbsp;&nbsp;&nbsp;<i class="fa">&#xf2db;</i></a> -->
-								<!-- 		             	<a href="#" class="btn btn-primary" id="btn_dispo"><i class="fa">&#xf055;</i>&nbsp;&nbsp;&nbsp;<i class="fa">&#xf109;</i></a> -->
-								<!--    						<a href="#" class="btn btn-primary" id="btn_print"><i class="fa">&#xf055;</i>&nbsp;&nbsp;&nbsp;<i class="fa">&#xf02f;</i></a> -->
-								<!--	<a href="#" class="btn btn-primary"><i class="fa">&#xf055;</i> <span>Exportar a Excel</span></a>-->
+								<a href="#" class="btn btn-primary" id="btn_proce"
+									title="Nuevo"
+									ng-click="asCtrl.nuevoRegistro()"><i
+									class="fa">&#xf055;</i>&nbsp;&nbsp;&nbsp;
+										<i class="fa">&#xf2db;</i></a>
+<!-- 								<a href="#" class="btn btn-primary" id="btn_antiv"><i -->
+<!-- 									class="fa">&#xf055;</i>&nbsp;&nbsp;&nbsp;<i class="fa">&#xf96c;</i></a> -->
+<!-- 								<a href="#" class="btn btn-primary" id="btn_so"><i -->
+<!-- 									class="fa">&#xf055;</i>&nbsp;&nbsp;&nbsp;<i class="fas">&#xf108;</i></a> -->
+<!-- 									<a href="#" class="btn btn-primary"><i class="fa">&#xf055;</i> <span>Exportar a Excel</span></a> -->
 							</div>
 						</div>
 					</div>
+			
 					<table class="table table-striped table-hover">
 						<thead align="center">
 							<tr>
 								<th>#</th>
-								<th>Descripcion</th>
 								<th>Tipo</th>
+								<th>Descripción</th>
 								<th>Estado</th>
-								<th>Fecha Registro</th>
+								<th></th>
 								<th>Acción</th>
 							</tr>
 						</thead>
 						<tbody align="center">
-							<tr
-								ng-repeat="r in tCtrl.listaTiposYDom | 
-                       	startFrom:tCtrl.currentPage*tCtrl.pageSize 
-                       			 | limitTo:tCtrl.pageSize">
-								<td>{{r.idTipodispositivo}}</td>
+							<tr ng-repeat="a in asCtrl.listar | 
+								startFrom:asCtrl.currentPage*asCtrl.pageSize |
+								limitTo:asCtrl.pageSize ">
+								<td>{{a.idRecurso}}</td>
 								<!--Primer columna-->
-								<td>{{r.nomDispositivo}}</td>
+								<td ng-if="a.flag == 'AN' ">Antivirus</td>
+								<td ng-if="a.flag == 'SO' ">SO</td>
+								
 								<!--segunda columna-->
-								<td ng-if="r.flag == 'TD'">Dispositivo</td>
-								<td ng-if="r.flag == 'I'">Impresora</td>
-								<td ng-if="r.flag == 'R'">Recurso</td>
-								<td ng-if="r.flag == 'D'">Dominio</td>
-								<td ng-if="r.estadoRegistro == 'A'">Activo</td>
-								<td ng-if="r.estadoRegistro == 'I'">Inactivo</td>
-								<td ng-if="r.fecha != null">{{r.tipoDominio.fecha |
-									date:'dd/MM/yyyy'}}</td>
-								<td ng-if="r.fecha == null">-</td>
+								<td>{{a.nombreRecurso}}</td>
+								<td ng-if="a.estado == 'A'">Activo</td>
+								<td ng-if="a.estado == 'I'">Inactivo</td>
+								
+								<td></td>
 								<td><a href="#" class="settings" title="Modificar"
-									data-toggle="tooltip" ng-click="tCtrl.abrirDialogModif(r);"><i
-										class="fa" id="ic_edit">&#xf14b;</i></a>	
-									 <a href="#" ng-click="tCtrl.ventanaEliminarTipoAndDominio(r)"
-									class="delete" title="Elminar" data-toggle="tooltip"><i
-										class="fa" id="ic_delete">&#xf1f8;</i></a></td>
+									ng-click="asCtrl.actualizarRegistro(a)"
+									data-toggle="tooltip"><i class="fa" id="ic_edit">&#xf14b;</i></a>
+										</td>
 							</tr>
 						</tbody>
 					</table>
 					<div style="text-align: right;">
-						<button ng-disabled="tCtrl.currentPage == 0"
+						<button ng-disabled="asCtrl.currentPage == 0"
 							class="btn btn-primary"
-							ng-click="tCtrl.currentPage=tCtrl.currentPage-1">
+							ng-click="asCtrl.currentPage=asCtrl.currentPage-1">
 							Anterior</button>
-						{{tCtrl.currentPage+1}}/{{tCtrl.numberOfPages()}}
+						{{asCtrl.currentPage+1}}/{{asCtrl.numberOfPages()}}
 						<button
-							ng-disabled="tCtrl.currentPage >= tCtrl.getData().length/tCtrl.pageSize - 1"
-							ng-click="tCtrl.currentPage=tCtrl.currentPage+1"
+							ng-disabled="asCtrl.currentPage >= asCtrl.getData().length/asCtrl.pageSize - 1"
+							ng-click="asCtrl.currentPage=asCtrl.currentPage+1"
 							class="btn btn-primary">Siguiente</button>
 					</div>
 				</div>
@@ -431,8 +431,7 @@
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
 						data-dismiss="modal">Cancelar</button>
-					<a class="btn btn-primary" href="#" th:href="@{/logout}">Cerrar
-						sesión</a>
+					<a class="btn btn-primary" href="login.html">Cerrar sesión</a>
 				</div>
 			</div>
 		</div>
@@ -460,14 +459,14 @@
 			</div>
 		</div>
 	</div>
-
 	<!-- modaL popup guardar -->
 	<div class="modal fade" id="Popup_guardar" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Ingresar
+				<div class="modal-header" style="background-color: #c23f3e;">
+					<h5 class="modal-title" id="exampleModalLabel"
+					style="color: white;text-align: center;">Ingresar
 						Categoría</h5>
 					<button class="close" type="button" data-dismiss="modal"
 						aria-label="Close">
@@ -479,24 +478,73 @@
 						<div class="form-group">
 							<label for="txt_tipo" class="col-form-label" id="lbl_Idcat">Seleccionar
 								Tipo</label> <select class="form-control" id="selectEstado"
-								ng-model="tCtrl.regTipoDominio.flag">
+								ng-model="asCtrl.dataAntiYSo.flag">
 								<option value="" selected>Seleccione...</option>
-								<option value="TD">TIPO DISPOSITIVO</option>
-								<option value="I">IMPRESORA</option>
-								<option value="R">RECURSO</option>
-								<option value="D">DOMINIO</option>
+								<option value="AN">ANTIVIRUS</option>
+								<option value="SO">SISTEMA OPERATIVO</option>
 							</select>
 						</div>
 						<div class="form-group">
 							<label for="recipient-name" class="col-form-label"
-								id="lbl_titulo">Descripcion</label> <input type="text"
-								ng-model="tCtrl.regTipoDominio.tipoDominio.nomDispositivo"
-								class="form-control" id="recipient-name">
+								id="lbl_titulo">Tipo</label> <input type="text"
+								class="form-control" id="recipient-name"
+								ng-model="asCtrl.dataAntiYSo.recurso.nombreRecurso">
+						</div>
+					</form>
+
+				</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button"
+						data-dismiss="modal">Cancelar</button>
+					<a class="btn btn-primary" href=""
+						ng-click="asCtrl.registrarAntivirusYSo()">Aceptar</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- modaL popup guardar -->
+	<!-- modaL popup modificar -->
+
+	<div class="modal fade" id="Popup_modif" tabindex="-1" role="dialog"
+		aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header" style="background-color: #c23f3e;">
+					<h5 class="modal-title" id="exampleModalLabel"
+					style="color: white;text-align: center;">Modificar
+						Categoría</h5>
+					<button class="close" type="button" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form>
+						<div class="form-group">
+							<label for="recipient-name" class="col-form-label" id="lbl_Idcat">ID</label>
+							<input type="text" class="form-control" id="txt_id"
+								 readonly
+								 ng-model="asCtrl.dataAntiYSo.recurso.idRecurso">
+						</div>
+						<div class="form-group">
+							<label for="txt_tipo" class="col-form-label" id="lbl_Idcat">Seleccionar
+								Tipo</label> <select class="form-control" id="selectEstado"
+								ng-model="asCtrl.dataAntiYSo.flag">
+								<option value="" selected>Seleccione...</option>
+								<option value="AN">ANTIVIRUS</option>
+								<option value="SO">SISTEMA OPERATIVO</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<label for="recipient-name" class="col-form-label"
+								id="lbl_titulo">Descripción</label> <input type="text"
+								class="form-control" id="txt_descrip"
+								ng-model="asCtrl.dataAntiYSo.recurso.nombreRecurso">
 						</div>
 						<div class="form-group">
 							<label for="txt_tipo" class="col-form-label" id="lbl_Idcat">Estado
 								</label> <select class="form-control" id="selectEstado"
-								ng-model="tCtrl.regTipoDominio.tipoDominio.estadoRegistro" >
+								ng-model="asCtrl.dataAntiYSo.recurso.estado" >
 								<option value="" selected>Seleccione...</option>
 								<option value="A">Activo</option>
 								<option value="I">Inactivo</option>
@@ -509,74 +557,17 @@
 					<button class="btn btn-secondary" type="button"
 						data-dismiss="modal">Cancelar</button>
 					<a class="btn btn-primary" href=""
-						ng-click="tCtrl.registrarTiposAndDominio()">Aceptar</a>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- modaL popup guardar -->
-	<!-- modaL popup modificar -->
-
-	<div class="modal fade" id="Popup_modif" tabindex="-1" role="dialog"
-		aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Modificar
-						Categoría</h5>
-					<button class="close" type="button" data-dismiss="modal"
-						aria-label="Close">
-						<span aria-hidden="true">×</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					<form>
-						<div class="form-group">
-							<label for="txt_id" class="col-form-label" id="lbl_Idcat">ID</label>
-							<input type="text" class="form-control" id="txt_id" readonly
-							ng-model="tCtrl.regTipoDominio.tipoDominio.idTipodispositivo">
-						</div>
-						<div class="form-group">
-							<label for="txt_tipo" class="col-form-label" id="lbl_Idcat">Seleccionar
-								Tipo</label> <select class="form-control" id="selectEstado"
-								ng-model="tCtrl.regTipoDominio.flag" disabled="disabled">
-								<option value="" selected>Seleccione...</option>
-								<option value="TD">TIPO DISPOSITIVO</option>
-								<option value="I">IMPRESORA</option>
-								<option value="R">RECURSO</option>
-								<option value="D">DOMINIO</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<label for="txt_descrip" class="col-form-label" id="lbl_titulo">Descripcion</label>
-							<input type="text" class="form-control" id="txt_descrip"
-							ng-model="tCtrl.regTipoDominio.tipoDominio.nomDispositivo">
-						</div>
-						<div class="form-group">
-							<label for="txt_tipo" class="col-form-label" id="lbl_Idcat">Estado
-								</label> <select class="form-control" id="selectEstado"
-								ng-model="tCtrl.regTipoDominio.tipoDominio.estadoRegistro" >
-								<option value="" selected>Seleccione...</option>
-								<option value="A">Activo</option>
-								<option value="I">Inactivo</option>
-							</select>
-						</div>
-					</form>
-
-				</div>
-				<div class="modal-footer">
-					<button class="btn btn-secondary" type="button"
-						data-dismiss="modal">Cancelar</button>
-					<a class="btn btn-primary" href="#" ng-click="tCtrl.actualizarTiposAndDominio()">Aceptar</a>
+						ng-click="asCtrl.actualizarAntivirusYSo()">Aceptar</a>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- modaL popup modificar -->
 
+	<!-- modaL Visualizar detalle ini -->
 
-	<div th:include="dialog/tipo/eliminar.html" th:remove="tag"></div>
+	<!-- modaL Visualizar detalle fin-->
+
 
 	<!-- ==================================== Boostrap JavaScript ===================== -->
 	<script th:src="${jQuery341MinJs}"></script>
@@ -588,6 +579,7 @@
 	<!--Fin JS del menu-->
 	<!--===============================================================================================-->
 	<!--===============================================================================================-->
+
 	<script th:src="${boostrapJs}"></script>
 	<script th:src="${boostrapBundleJs}"></script>
 	<!--===============================================================================================-->

@@ -108,5 +108,34 @@ public class PaginasController {
 		return model;
 
 	}
+	
+	
+	@RequestMapping(value = "/equipos/antivirusYSo", method = RequestMethod.GET)
+	public ModelAndView antivirusYSo() throws Exception {
+
+		String path = "";
+
+		System.out.println(path);
+
+		ModelAndView model = new ModelAndView();
+//		model.addObject("usuario", SecurityContextHolder.getContext().getAuthentication().getName());
+		model.addObject("allMincss", path + "/css/Index/Template/all.min.css");
+		model.addObject("sbadmin", path + "/css/Index/Template/sb-admin-2.min.css");
+		model.addObject("indexStyleCss", path + "/css/Index/style_index.css");
+		model.addObject("bootstrap", path + "/boostrap/css/bootstrap.min.css");
+		model.addObject("disenioCategCss", path + "/css/Categorias/diseño_categ_1.css");
+		model.addObject("imagenLogo", path + "/imagenes/logo_utp_3.png");
+		model.addObject("jQuery341MinJs", path + "/jquery/jquery_3_4_1.min.js");
+		model.addObject("sbadmin2", path + "/javaScript/Index/sb-admin-2.min.js");
+		model.addObject("sbadmin2js", path + "/javaScript/Index/sb-admin-2.js");
+		model.addObject("boostrapJs", path + "/boostrap/js/bootstrap.min.js");
+		model.addObject("boostrapBundleJs", path + "/boostrap/js/bootstrap.bundle.min.js");
+		model.addObject("categoriaJS", path + "/javaScript/Categorias/categorias_02.js");
+		model.setViewName("equipos/antivirusYSo");
+
+		return model;
+	}
+	
+	
 
 }

@@ -36,22 +36,22 @@ $.each($tds, function() {
      $('#Popup_modif').modal();
   }
 });
-// Click en impresoras
-$("#btn_so").on('click', function() {
-   $('#lbl_titulo').text("Ingresar Tipo de Sistema Operativo");
-   $('#Popup_guardar').modal();
-});
-
-// Click en Dispositivos
-$("#btn_antiv").click(function(){
-  $('#lbl_titulo').text("Ingresar Tipo de Antivirus");
-  $('#Popup_guardar').modal();
-});
-
-// Click en Recurso
-$("#btn_proce").click(function(){
-  $('#lbl_titulo').text("Ingresar Tipo de Procesadores");
-  $('#Popup_guardar').modal();
-});
+//// Click en impresoras
+//$("#btn_so").on('click', function() {
+//   $('#lbl_titulo').text("Ingresar Tipo de Sistema Operativo");
+//   $('#Popup_guardar').modal();
+//});
+//
+//// Click en Dispositivos
+//$("#btn_antiv").click(function(){
+//  $('#lbl_titulo').text("Ingresar Tipo de Antivirus");
+//  $('#Popup_guardar').modal();
+//});
+//
+//// Click en Recurso
+//$("#btn_proce").click(function(){
+//  $('#lbl_titulo').text("Ingresar Tipo de Procesadores");
+//  $('#Popup_guardar').modal();
+//});
 
 })(jQuery); // End of use strict
