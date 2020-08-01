@@ -1,15 +1,15 @@
 package pe.com.inventario.web.config;
 
 import org.springframework.context.annotation.Configuration;
-//import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
-//import org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration;
 
 @Configuration
-//@EnableGlobalMethodSecurity(
-//	prePostEnabled = true
-//)
+@EnableGlobalMethodSecurity(
+	prePostEnabled = true
+)
 public class MethodSecurityConfig 
-//extends GlobalMethodSecurityConfiguration
+extends GlobalMethodSecurityConfiguration
 {
 
 

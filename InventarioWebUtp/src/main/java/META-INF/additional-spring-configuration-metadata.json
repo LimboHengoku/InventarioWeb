@@ -1,0 +1,19 @@
+{
+	"properties": [
+		{
+			"name": "inventario.rest.url.login",
+			"type": "java.lang.String",
+			"description": "A description for 'inventario.rest.url.login'"
+		},
+		{
+			"name": "inventario.rest.url.tipoYDominio.listar",
+			"type": "java.lang.String",
+			"description": "A description for 'inventario.rest.url.tipoYDominio.listar'"
+		},
+		{
+			"name": "inventario.rest.url.usuario.roles",
+			"type": "java.lang.String",
+			"description": "A description for 'inventario.rest.url.usuario.roles'"
+		}
+	]
+}
